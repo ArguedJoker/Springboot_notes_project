@@ -37,4 +37,12 @@ public class NoteService {
         return this.repo.save(update);
     }
 
+    public Boolean deleteNoteById(Long id){
+        if(!this.repo.existsById(id)){
+            throw new NoteNotFoundException();
+        }
+        this.repo.deleteById(id);
+        return this.repo.existsById(id);
     }
+
+}
