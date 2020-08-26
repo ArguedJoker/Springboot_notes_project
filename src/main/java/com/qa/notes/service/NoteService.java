@@ -26,8 +26,10 @@ public class NoteService {
         return this.repo.save(note);
     }
 
-
-
+    public Note findNoteById(Long id){
+        return this.repo.findById(id).orElseThrow(NoteNotFoundException::new);
     }
+
+
 
 }
