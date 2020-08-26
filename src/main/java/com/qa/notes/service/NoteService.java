@@ -30,6 +30,11 @@ public class NoteService {
         return this.repo.findById(id).orElseThrow(NoteNotFoundException::new);
     }
 
+    public Note updateNote(Long id, Note note){
+        Note update = findNoteById(id);
+        update.setTitle(note.getTitle());
+        update.setDescription(note.getDescription());
+        return this.repo.save(update);
+    }
 
-
-}
+    }
